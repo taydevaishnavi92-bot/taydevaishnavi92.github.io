@@ -1,0 +1,584 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>College of Management & Computer Science, Yavatmal</title>
+<meta name="description" content="Official website - College of Management & Computer Science, Yavatmal. Programs in BCA, BBA, MCA & more. Admissions, faculty, events and contact." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg:#0f1724;
+--card:#0b1220;
+--muted:#9aa7b2;
+--accent-1: #0066ff;
+--accent-2: #00c2a8;
+--glass: rgba(255,255,255,0.04);
+--radius: 14px;
+--max-width: 1100px;
+}
+/* Reset & base */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+margin:0;
+font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+color: #e6eef6;
+background: linear-gradient(180deg,#071026 0%, #071a2b 60%);
+-webkit-font-smoothing:antialiased;
+-moz-osx-font-smoothing:grayscale;
+line-height:1.5;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;height:auto;display:block;border-radius:8px}
+.container{max-width:var(--max-width);margin:0 auto;padding:0 20px}
+
+/* Header */
+header{
+position:sticky;top:0;z-index:40;
+backdrop-filter: blur(6px);
+background: linear-gradient(180deg, rgba(7,18,38,0.6), rgba(7,18,38,0.35));
+border-bottom:1px solid rgba(255,255,255,0.03);
+}
+.nav{
+display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0;
+}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{
+width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--accent-1),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:800;color:white;font-family:Merriweather,serif;font-size:18px;box-shadow:0 6px 18px rgba(2,6,23,0.6);
+}
+.brand h1{font-size:16px;margin:0;line-height:1}
+.brand p{margin:0;color:var(--muted);font-size:12px}
+
+nav ul{display:flex;gap:12px;list-style:none;margin:0;padding:0;align-items:center}
+nav a{padding:8px 12px;border-radius:10px;color:var(--muted);font-weight:600}
+nav a:hover{color:var(--accent-1);background:rgba(255,255,255,0.02)}
+
+.cta{
+padding:9px 14px;border-radius:10px;background:linear-gradient(90deg,var(--accent-1),var(--accent-2));box-shadow:0 8px 24px rgba(0,98,255,0.15);color:white;font-weight:700;font-size:14px;border:none;cursor:pointer;
+}
+
+/* Mobile nav toggle */
+.mobile-toggle{display:none;background:transparent;border:0;color:var(--muted);font-size:22px}
+@media (max-width:900px){
+nav ul{display:none}
+.mobile-toggle{display:block}
+}
+
+/* Hero */
+.hero{
+padding:48px 0 36px;
+display:grid;grid-template-columns:1fr 460px;gap:32px;align-items:center;
+}
+.hero-left h2{font-family:Merriweather,serif;font-size:36px;margin:0 0 8px}
+.hero-left p.lead{color:var(--muted);font-size:16px;margin:0 0 20px;max-width:680px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.feature-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:16px;border-radius:14px;box-shadow:0 6px 30px rgba(2,6,23,0.45);border:1px solid rgba(255,255,255,0.03)}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:8px 10px;border-radius:10px;background:rgba(255,255,255,0.03);font-weight:700}
+.stats{display:flex;gap:12px;margin-top:18px;flex-wrap:wrap}
+.stat{min-width:120px;padding:12px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));text-align:center}
+.stat strong{display:block;font-size:20px}
+.card-graphic{background:linear-gradient(135deg,#08263c, #05304b);border-radius:14px;padding:24px;display:flex;flex-direction:column;gap:18px;align-items:flex-start}
+
+/* Departments / grid */
+section{padding:48px 0}
+.section-header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:18px}
+.section-header h3{margin:0;font-size:20px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.dept-card{padding:18px;border-radius:12px;background:var(--glass);border:1px solid rgba(255,255,255,0.03);box-shadow:0 6px 18px rgba(2,6,23,0.5)}
+.dept-card h4{margin:0 0 8px}
+.dept-card p{color:var(--muted);font-size:14px;margin:0}
+
+@media (max-width:900px){
+.hero{grid-template-columns:1fr; text-align:center}
+.card-graphic{align-items:center}
+.grid{grid-template-columns:repeat(1,1fr)}
+.stats{justify-content:center}
+}
+@media (min-width:901px) and (max-width:1200px){
+.grid{grid-template-columns:repeat(2,1fr)}
+}
+
+/* Faculty carousel */
+.carousel{position:relative;overflow:hidden;border-radius:12px}
+.slides{display:flex;gap:16px;transition:transform .6s cubic-bezier(.2,.9,.2,1)}
+.faculty-card{min-width:240px;padding:16px;background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+.carousel-controls{position:absolute;top:50%;left:0;right:0;display:flex;justify-content:space-between;padding:0 10px;transform:translateY(-50%)}
+.ctrl{background:rgba(0,0,0,0.45);border:0;color:white;padding:8px;border-radius:999px;cursor:pointer}
+
+/* Events */
+.events-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.event-card{padding:16px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03);transition:transform .28s ease, box-shadow .28s ease}
+.event-card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(0,0,0,0.5)}
+
+@media (max-width:900px){
+.events-grid{grid-template-columns:repeat(1,1fr)}
+}
+
+/* Footer */
+footer{padding:28px 0;border-top:1px solid rgba(255,255,255,0.03);margin-top:28px}
+.footer-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px}
+.small{font-size:13px;color:var(--muted)}
+
+/* Utilities & animations */
+.hidden{opacity:0;transform:translateY(12px);transition:all .6s cubic-bezier(.2,.9,.2,1)}
+.reveal{opacity:1;transform:translateY(0)}
+.pill{padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.02);font-weight:700;color:var(--muted)}
+.search{display:flex;gap:8px;align-items:center}
+.input{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:10px 12px;border-radius:10px;color:inherit;min-width:220px}
+
+/* counters */
+.counter{font-weight:800;font-size:26px}
+/* accessibility focus */
+a:focus, button:focus {outline:2px solid rgba(0,153,255,0.2);outline-offset:2px}
+
+/* decorative SVG wave */
+.wave{margin-top:-8px}
+/* small helpers */
+.muted{color:var(--muted)}
+</style>
+</head>
+<body>
+
+<header>
+<div class="container nav" role="navigation" aria-label="Main navigation">
+<div class="brand">
+<div class="logo" aria-hidden="true">CMCS</div>
+<div>
+<h1 style="font-size:15px;margin-bottom:2px">College of Management & Computer Science</h1>
+<p style="color:var(--muted);font-size:12px;margin:0">Yavatmal — Excellence in Education</p>
+</div>
+</div>
+
+<nav aria-label="Primary">
+<button class="mobile-toggle" id="mobileBtn" aria-expanded="false" aria-controls="mobileMenu">☰</button>
+<ul id="menu">
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#departments">Departments</a></li>
+<li><a href="#faculty">Faculty</a></li>
+<li><a href="#events">Events</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+<div style="display:flex;align-items:center;gap:10px">
+<a class="pill" href="#admissions">Admissions 2025</a>
+<a class="cta" href="#contact">Apply Now</a>
+</div>
+</div>
+
+<!-- mobile menu -->
+<div id="mobileMenu" style="display:none;background:linear-gradient(180deg, rgba(7,18,38,0.95), rgba(7,18,38,0.98));padding:12px;border-top:1px solid rgba(255,255,255,0.02)">
+<div class="container">
+<ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px">
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#departments">Departments</a></li>
+<li><a href="#faculty">Faculty</a></li>
+<li><a href="#events">Events</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</div>
+</div>
+</header>
+
+<main id="home">
+<div class="container hero" >
+<div class="hero-left">
+<div class="badge">📚 Accredited • NAAC B | AICTE compliant</div>
+<h2>Shaping Future Leaders in Management & Computer Science</h2>
+<p class="lead">College of Management & Computer Science, Yavatmal offers industry-oriented programs, practical training, and strong campus placements. Join a community focused on innovation, ethics and employability.</p>
+
+<div class="hero-actions">
+<a class="cta" href="#admissions">Apply for 2026</a>
+<a class="feature-card" href="#departments" style="display:inline-flex;align-items:center;gap:10px">📘 View Programs</a>
+</div>
+
+<div class="stats" style="margin-top:18px">
+<div class="stat">
+<div class="counter" data-target="3500">0</div>
+<div class="muted">Alumni</div>
+</div>
+<div class="stat">
+<div class="counter" data-target="18">0</div>
+<div class="muted">Years of Excellence</div>
+</div>
+</div>
+</div>
+</div>
+
+<aside class="card-graphic">
+<!-- simple SVG illustration -->
+<svg width="220" height="140" viewBox="0 0 220 140" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+<rect x="4" y="10" width="150" height="100" rx="10" fill="url(#g1)"/>
+<rect x="60" y="30" width="140" height="90" rx="10" fill="url(#g2)" opacity="0.95"/>
+<defs>
+<linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
+<stop offset="0" stop-color="#013a78"/><stop offset="1" stop-color="#0fa3a9"/>
+</linearGradient>
+<linearGradient id="g2" x1="0" x2="1" y1="0" y2="1">
+<stop offset="0" stop-color="#043a6b"/><stop offset="1" stop-color="#00d1b2"/>
+</linearGradient>
+</defs>
+</svg>
+
+<div style="max-width:260px">
+<h4 style="margin:6px 0 4px">Campus Life & Labs</h4>
+<p class="muted" style="margin:0;font-size:13px">Modern computer labs, management simulation labs and a thriving student community supporting hackathons and entrepreneurship.</p>
+</div>
+
+<div style="width:100%;display:flex;gap:10px;justify-content:space-between;margin-top:8px">
+   <button class="pill">Virtual Tour</button>
+   <button class="pill">Placement Stats</button>
+
+  
+    
+</div>
+</aside>
+
+</div>
+
+<!-- svg wave -->
+<div class="wave" aria-hidden="true">
+<svg viewBox="0 0 1440 110" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="width:100%;height:60px;display:block">
+<path d="M0,30 C200,80 400,0 720,30 C1040,60 1240,0 1440,40 L1440 140 L0 140 Z" fill="#071a2b" opacity="0.95"/>
+</svg>
+</div>
+</main>
+
+<section id="about" class="container">
+<div class="section-header">
+<h3>About the College</h3>
+<div class="small muted">Committed to quality education, research and placement assistance</div>
+</div>
+<div class="grid" style="grid-template-columns:2fr 1fr">
+<div class="dept-card hidden">
+<h4>Vision & Mission</h4>
+<p class="muted">To empower students with knowledge and skills in management and computer science through innovative teaching, research and industry collaboration that promote regional development and global outlook.</p>
+
+<h4 style="margin-top:14px">What sets us apart</h4>
+<ul style="margin:8px 0 0 18px;color:var(--muted)">
+<li>Industry-aligned curriculum</li>
+<li>Strong placement record & internships</li>
+<li>Student clubs: Coding, Entrepreneurship & Cultural</li>
+<li>Research & community outreach programs</li>
+</ul>
+</div>
+
+<div class="dept-card hidden">
+<h4>Quick Facts</h4>
+<p class="muted"><strong>Accreditation:</strong> NAAC B | <strong>Affiliation:</strong> Amravati University</p>
+<p class="muted"><strong>Programs:</strong> BCA, BBA, BSC, MSC, MBA</p>
+<p class="muted"><strong>Contact:</strong> cmcs457@sgbau.ac.in</p>
+<div style="margin-top:12px;display:flex;gap:8px">
+<div class="pill">Scholarships</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="departments" class="container">
+<div class="section-header">
+<h3>Departments & Courses</h3>
+<div class="small muted">Explore undergraduate & postgraduate programs</div>
+</div>
+
+<div class="grid">
+<article class="dept-card hidden">
+<h4>BCA — Bachelor of Computer Applications</h4>
+<p class="muted">Three-year program focused on programming, data structures, web & mobile development, database systems and project work with industry mentorship.</p>
+</article>
+
+<article class="dept-card hidden">
+<h4>BBA — Bachelor of Business Administration</h4>
+<p class="muted">Comprehensive management curriculum, internships, live projects and soft-skills training to prepare students for corporate roles and entrepreneurship.</p>
+</article>
+
+<article class="dept-card hidden">
+<h4>BSC — Bachelor of Science</h4>
+<p class="muted">An undergraduate degree program that focuses on scientific subjects such as Mathematics, Physics, Computer Science, and Electronics.</p>
+</article>
+
+
+<article class="dept-card hidden">
+<h4>Placement & Training Cell</h4>
+<p class="muted">Industry tie-ups, training sessions, mock interviews and placement drives to connect students with recruiters.</p>
+</article>
+
+</section>
+
+<section id="faculty" class="container">
+<div class="section-header">
+<h3>Board Members</h3>
+</div>
+
+<div class="carousel hidden" aria-roledescription="carousel" aria-label="Faculty carousel">
+<div style="overflow:hidden;padding:10px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);border-radius:12px">
+<div class="slides" id="slides">
+<!-- card repeated -->
+<div class="faculty-card">
+<img src="https://www.cmcs.hjes.in/new/wp-content/uploads/2021/03/Prakash_sir_RC.png" alt="" class="wp-image-1032"/><figcaption class="wp-element-caption"><strong>Chairman<br>Mr. Prakash H</strong>. <strong>Jajoo</strong></figcaption></figure>
+
+
+<p class="muted" style="margin:0 0 8px;font-size:13px">Chairman</p>
+</div>
+
+<div class="faculty-card">
+<img src="https://www.cmcs.hjes.in/new/wp-content/uploads/2021/03/WhatsApp-Image-2021-03-28-at-5.20.48-AM-edited.jpeg" alt=" alt=" alt=" alt="" class="wp-image-1057" style="width:182px;height:181px" srcset="https://www.cmcs.hjes.in/new/wp-content/uploads/2021/03/IMG_2594-removebg-preview-edited-1.png 344w, https://www.cmcs.hjes.in/new/wp-content/uploads/2021/03/IMG_2594-removebg-preview-edited-1-298x300.png 298w, https://www.cmcs.hjes.in/new/wp-content/uploads/2021/03/IMG_2594-removebg-preview-edited-1-150x150.png 150w" sizes="auto, (max-width: 344px) 100vw, 344px" /><figcaption class="wp-element-caption"><strong>Secretary<br>Mr. Aashish P. Jajoo</strong></figcaption></figure>
+
+
+<p class="muted" style="margin:0 0 8px;font-size:13px">Secretary</p>
+</div>
+
+<div class="faculty-card">
+
+<img src="https://www.cmcs.hjes.in/new/wp-content/uploads/2021/03/IMG_2596-removebg-preview-edited-2.png"  alt="" class="wp-image-1032"/><figcaption class="wp-element-caption"><strong><br></strong><strong></strong></figcaption></figure>
+
+
+<h4 style="margin:12px 0 4px">Mrs. Shilpa A. Jajoo</h4>
+<p class="muted" style="margin:0 0 8px;font-size:13px">Board Member</p>
+</div>
+
+<div class="faculty-card">
+<img src="https://www.cmcs.hjes.in/new/wp-content/uploads/2021/03/WhatsApp-Image-2021-03-28-at-5.20.48-AM-edited.jpeg" alt=" alt="" class="wp-image-1032"/><figcaption class="wp-element-caption"><strong><br></strong><strong></strong></figcaption></figure>
+
+<h4 style="margin:12px 0 4px">Mr. Ritesh D. Chandak</h4>
+<p class="muted" style="margin:0 0 8px;font-size:13px">Principal</p>
+</div>
+</div>
+</div>
+
+<div class="carousel-controls" aria-hidden="true">
+<button class="ctrl" id="prev">&lt;</button>
+<button class="ctrl" id="next">&gt;</button>
+</div>
+</div>
+
+</section>
+
+<section id="admissions" class="container">
+<div class="section-header">
+<h3>Admissions</h3>
+<div class="small muted"><h3>Application process and key Dates</h3></div>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 330px;gap:18px">
+<div class="dept-card hidden">
+<h4>How to Apply</h4>
+<ol class="muted">
+<li>Visit the admissions office or apply online (link placeholder)</li>
+<li>Submit scanned documents & passport photo</li>
+<li>Pay application fee</li>
+</ol>
+<p class="muted" style="margin-top:8px"><strong><h4>Documents</h4>:</strong> 10th, 12th mark sheet, degree certificate (if any), ID proof & passport photo.</p>
+<a class="cta" href="#contact" style="margin-top:12px;display:inline-block">Contact Admissions</a>
+</div>
+
+<aside class="dept-card hidden">
+<h4>Important Dates</h4>
+<ul style="color:var(--muted);margin:8px 0 0 18px">
+<li>Application start: June 1, 2026</li>
+<li>Last date: Augest 30, 2026</li>
+</ul>
+</aside>
+</div>
+</section>
+
+<section id="contact" class="container">
+<div class="section-header">
+<h3>Contact & Reach Us</h3>
+<div class="small muted">We’re here to help — admissions, queries and campus visits</div>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 360px;gap:18px">
+<form class="dept-card hidden" onsubmit="return sendEmail(event)">
+<label class="small" for="name">Full name</label>
+<input id="name" class="input" type="text" required placeholder="Your name" />
+
+<label class="small" for="email" style="margin-top:8px">Email</label>
+<input id="email" class="input" type="email" required placeholder="you@example.com" />
+
+<label class="small" for="msg" style="margin-top:8px">Message</label>
+<textarea id="msg" class="input" rows="5" style="resize:vertical" placeholder="How can we help?"></textarea>
+
+<div style="display:flex;gap:10px;margin-top:10px">
+<button type="submit" class="cta">Send Message</button>
+<a class="pill" href="mailto:cmcs457@sgbau.ac.in?subject=Prospect%20Query">Email Admissions</a>
+</div>
+</form>
+
+<aside class="dept-card hidden">
+<h4>Contact Details</h4>
+<p class="muted" style="margin:6px 0"><strong>Address:</strong> 13/4-A, Behind Naringe Nagar, Dhamangaon Road, Yavatmal - 445 001. [MH]</p>
+<p class="muted" style="margin:6px 0"><strong>Phone:</strong> 94053 92530</p>
+<p class="muted" style="margin:6px 0"><strong>Email:</strong> cmcs457@sgbau.ac.in</p>
+
+<h4 style="margin-top:12px">Campus Map</h4>
+<div style="background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:10px;border-radius:10px;margin-top:8px">
+<!-- Static placeholder map / replace with google maps iframe when hosting -->
+<svg width="100%" height="140" viewBox="0 0 400 140" preserveAspectRatio="none" style="border-radius:8px">
+<rect width="100%" height="100%" fill="#052233" rx="8"></rect>
+<text x="50%" y="50%" fill="#5aa6b1" dominant-baseline="middle" text-anchor="middle" style="font-family:Inter, sans-serif">https://maps.google.com/maps?ll=20.411864,78.14066&z=15&t=m&hl=mr&gl=IN&mapclient=embed&cid=10621262146898269948>
+</svg>
+</div>
+</aside>
+</div>
+</section>
+
+<footer>
+<div class="container footer-grid">
+<div>
+<h4 style="margin:0 0 6px">College of Management & Computer Science</h4>
+<div class="small muted">© <span id="year"></span> CMCS Yavatmal. All rights reserved.</div>
+</div>
+<div>
+<div style="font-weight:700;margin-bottom:6px">Quick links</div>
+<div style="display:flex;flex-direction:column;gap:6px">
+<a class="small muted" href="#departments">Programs</a>
+<a class="small muted" href="#faculty">Faculty</a>
+</div>
+</div>
+<div>
+<div style="font-weight:700;margin-bottom:6px">Follow us</div>
+<div style="display:flex;gap:8px">
+<a class="pill" href="#" aria-label="Facebook">f</a>
+<a class="pill" href="#" aria-label="Instagram">ig</a>
+<a class="pill" href="#" aria-label="YouTube">yt</a>
+</div>
+</div>
+</div>
+</footer>
+
+<script>
+// Basic utilities & accessibility enhancements
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// Mobile menu toggle
+const mobileBtn = document.getElementById('mobileBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+mobileBtn.addEventListener('click', () => {
+const expanded = mobileBtn.getAttribute('aria-expanded') === 'true';
+mobileBtn.setAttribute('aria-expanded', String(!expanded));
+mobileMenu.style.display = expanded ? 'none' : 'block';
+});
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+a.addEventListener('click', (e) => {
+const href = a.getAttribute('href');
+if (href.length > 1) {
+e.preventDefault();
+const el = document.querySelector(href);
+if (el) {
+el.scrollIntoView({behavior:'smooth', block:'start'});
+}
+// close mobile menu if open
+if (mobileMenu.style.display === 'block') {
+mobileMenu.style.display = 'none';
+mobileBtn.setAttribute('aria-expanded','false');
+}
+}
+});
+});
+
+// Counters (animated)
+const counters = document.querySelectorAll('.counter');
+counters.forEach(counter => {
+counter.textContent = '0';
+const target = +counter.dataset.target;
+const duration = 1200;
+let start = null;
+function step(ts){
+if (!start) start = ts;
+const progress = ts - start;
+const pct = Math.min(progress / duration, 1);
+const value = Math.floor(pct * target);
+counter.textContent = value.toLocaleString();
+if (pct < 1) requestAnimationFrame(step);
+else counter.textContent = target.toLocaleString();
+}
+// start when visible
+const obs = new IntersectionObserver(entries => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+requestAnimationFrame(step);
+obs.disconnect();
+}
+});
+}, {threshold:0.6});
+obs.observe(counter);
+});
+
+// IntersectionObserver reveal animations
+const hiddenEls = document.querySelectorAll('.hidden');
+const revealObs = new IntersectionObserver(entries => {
+entries.forEach(e => {
+if (e.isIntersecting) {
+e.target.classList.add('reveal');
+revealObs.unobserve(e.target);
+}
+});
+}, {threshold: 0.12});
+hiddenEls.forEach(el => revealObs.observe(el));
+
+// Faculty carousel logic
+(function(){
+const slides = document.getElementById('slides');
+const prev = document.getElementById('prev');
+const next = document.getElementById('next');
+let index = 0;
+const cardWidth = 256; // approx width + gap, adjust if change layout
+// ensure calculated width flexible:
+function calcStep() {
+// set min card width dynamically from first child
+const first = slides.children[0];
+if (first) {
+const style = getComputedStyle(first);
+const marginRight = 16; // gap used in CSS
+return first.getBoundingClientRect().width + marginRight;
+}
+return cardWidth;
+}
+function go(i){
+const step = calcStep();
+index = Math.max(0, Math.min(i, slides.children.length - 1));
+slides.style.transform = `translateX(${-index * step}px)`;
+}
+prev.addEventListener('click', ()=>go(index-1));
+next.addEventListener('click', ()=>go(index+1));
+
+// responsive autoplay (pauses on hover)
+let auto = setInterval(()=>{ go(index+1); if (index >= slides.children.length-1) index = -1; }, 3500);
+slides.parentElement.addEventListener('mouseenter', ()=>clearInterval(auto));
+slides.parentElement.addEventListener('mouseleave', ()=>{ auto = setInterval(()=>{ go(index+1); if (index >= slides.children.length-1) index = -1; }, 3500); });
+
+// accessibility: keyboard nav
+document.addEventListener('keydown', e => {
+if (e.key === 'ArrowLeft') go(index-1);
+if (e.key === 'ArrowRight') go(index+1);
+});
+window.addEventListener('resize', ()=>go(index));
+})();
+
+// Simple contact form handler - uses mailto fallback
+function sendEmail(e){
+e.preventDefault();
+const name = document.getElementById('name').value.trim();
+const email = document.getElementById('email').value.trim();
+const msg = document.getElementById('msg').value.trim();
+if (!name || !email) {
+alert('Please enter name and email.');
+return false;
+}
+const subject = encodeURIComponent('Website Inquiry from ' + name);
+const body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\nMessage:\n' + msg);
+// Open default mail client
+window.location.href = `mailto:cmcs457@sgbau.ac.in?subject=${subject}&body=${body}`;
+return false;
+}
+
+// Improve keyboard focus order on skip of collapsed mobile menu
+// (no-op but included for completeness)
+</script>
